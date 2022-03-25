@@ -1,0 +1,71 @@
+<div class="input-group input-group-sm mb-3">
+
+    <!-- <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-expanded="false">
+            Filters
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div> -->
+
+    <!-- <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" placeholder="Enter your search here"> -->
+    <!-- <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+    </div> -->
+    <!-- <button (click)="clickSearch()" type="button" class="btn btn-primary">Search</button> -->
+
+
+
+</div>
+
+<hr>
+<div class="container">
+    <h1>All Listings</h1>
+<ul class="list-group">
+    <div class="row">
+        
+    <div class="col-sm-4" *ngFor="let lists of list">
+        <div class="card">
+            {{lists.id}}
+            <div class="col-sm-2">
+                <img src="{{lists.url}}" alt="house" style="width: 100px; height: 100px" />
+            </div>
+            <div class="col-lg-10" style="text-align:center">
+                <!-- <a class="btn btn-primary" routerLink="/edit" href="#">Edit Listings</a> -->
+                <button (click)="onClick(lists.id)" class="btn btn-primary">Edit</button>
+                <button class = "btn btn-secondary" (click)="deleteButtonHandler(lists.id)" >Delete</button>
+                
+                <div class=" nav-link" *ngIf="showDelete[lists.id]" >
+                   <p> Are you sure you wish to delete this?</p>
+                    <button class = "btn btn-danger" 
+                    style="margin-left: 10px"  (click)="deleteRowHandler(lists.id)"  routerLink="/listings">Yes, delete</button>
+                </div>
+                </div>
+            <div class="col-lg-10" >
+                <p>Location: {{lists.location}}</p>
+                <p>Price: {{lists.price | currency}}</p> 
+            </div>
+            
+        <form>
+            <!-- <div class="col-lg-10" style="text-align:center">
+         <a class="btn btn-primary" routerLink="/edit" href="#">Edit Listings</a>
+        <button (click)="onClick(lists.id)" class="btn btn-primary">Edit</button>
+        <button class = "btn btn-danger" (click)="deleteButtonHandler(lists.id)" >Delete</button>
+        
+        <div class="col-lg-3 nav-link" *ngIf="showDelete[lists.id]">
+            Are you sure you wish to delete this?<button class = "btn btn-secondary" 
+            style="margin-left: 10px"  (click)="deleteRowHandler(lists.id)"  routerLink="/listings">Yes, delete</button>
+        </div>
+        </div> -->
+    </form>
+    
+</div>
+</div>
+</div>
+</ul>
+</div>
